@@ -73,7 +73,7 @@
 		/*  Settings  */
 		/*------------------------------------------------------------------------------------------------*/
 
-		public function checkFields(&$errors, $checkForDuplicates = true){
+		public function checkFields(array &$errors, $checkForDuplicates = true){
 			Field::checkFields($errors, $checkForDuplicates);
 
 			$parent_field_id = $this->get('parent_field_id');
@@ -129,7 +129,7 @@
 			return (is_array($errors) && !empty($errors) ? self::__ERROR__ : self::__OK__);
 		}
 
-		public function displaySettingsPanel(&$wrapper, $errors = NULL){
+		public function displaySettingsPanel(XMLElement &$wrapper, $errors = NULL){
 			Field::displaySettingsPanel($wrapper, $errors);
 
 			$sections = SectionManager::fetch(NULL, 'ASC', 'sortorder');
@@ -399,7 +399,7 @@
 		/*  Publish  */
 		/*------------------------------------------------------------------------------------------------*/
 
-		public function displayPublishPanel(&$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL){
+		public function displayPublishPanel(XMLElement &$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL, $entry_id = NULL) {
 
 			$entry_ids = array();
 
